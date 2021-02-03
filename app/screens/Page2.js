@@ -1,12 +1,9 @@
 import React, { useContext } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { MainContext } from "../context/DataContext";
-import { fields } from "../form/fields";
-import Form from "../form/Form";
 
 export default function Page2() {
   const { data } = useContext(MainContext);
-  console.warn(data);
   return (
     <View>
       <Text>Page 2</Text>
@@ -41,7 +38,8 @@ const styles = StyleSheet.create({
     shadowRadius: 2.62,
     elevation: 4,
     width: 400,
-    backgroundColor: "gray"
+    backgroundColor: "gray",
+    margin: 10
   },
   label: {
     color: "blue",
