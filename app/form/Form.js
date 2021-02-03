@@ -1,24 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Text, TextInput, View, StyleSheet } from "react-native";
-import { getInitialState, getValues } from "../helpers/getData";
+import { MainContext } from "../context/DataContext";
 
 const Form = ({ fields }) => {
   const fieldKeys = Object.keys(fields);
-  // generating states according to fields quantity
-  const [values, setValues] = useState(getInitialState(fieldKeys));
+  const {data, setData} = useContext(MainContext)
 
   // handle change
   const onChangeValue = (key, value) => {
       // updating state according input onChange
-    const newState = { ...values, [key]: value };
-    setValues(newState);
+    const newState = { ...data, [key]: value };
+    setData(newState)
   };
 
-  // submit
-  const submit = async () => {
-    const values = getValues(fieldKeys);
-    console.log(values);
-  };
+// console.warn(data);
+
 
   return fieldKeys.map((key) => {
     const field = fields[key];
@@ -29,7 +25,7 @@ const Form = ({ fields }) => {
           <TextInput
             style={styles.input}
             {...field.inputProps}
-            value={values[key]}
+            value={data[key]}
             onChangeText={(text) => onChangeValue(key, text)}
           />
         </View>
