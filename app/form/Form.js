@@ -4,6 +4,7 @@ import { getInitialState, getValues } from "../helpers/getData";
 
 const Form = ({ fields }) => {
   const fieldKeys = Object.keys(fields);
+  // generating states according to fields quantity
   const [values, setValues] = useState(getInitialState(fieldKeys));
 
   // handle change
