@@ -4,24 +4,23 @@ import { MainContext } from "../context/DataContext";
 
 const Form = ({ fields }) => {
   const fieldKeys = Object.keys(fields);
-  const {data, setData} = useContext(MainContext)
+  const { data, setData } = useContext(MainContext);
 
   // handle change
   const onChangeValue = (key, value) => {
-      // updating state according input onChange
+    // updating state according input onChange
     const newState = { ...data, [key]: value };
-    setData(newState)
+    setData(newState);
   };
 
-// console.warn(data);
-
+  // console.warn(data);
 
   return fieldKeys.map((key) => {
     const field = fields[key];
     return (
       <View key={key} styles={styles.container}>
         <View style={styles.inputContainer}>
-          <Text>{field.label}</Text>
+          <Text style={styles.label}>{field.label}</Text>
           <TextInput
             style={styles.input}
             {...field.inputProps}
@@ -41,10 +40,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
     backgroundColor: "white",
     marginBottom: 5,
+    borderRadius: 20
   },
   inputContainer: {
     marginBottom: 20,
-    shadowColor: "#000",
+    shadowColor: "gray",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -59,6 +59,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginBottom: 15,
   },
+  label: {
+    color: "blue",
+    textAlign: "center"
+  }
 });
 
 export default Form;

@@ -1,24 +1,24 @@
 export const fields = {
     name: {
-      label: "Nombres",
+      label: "Name",
       inputProps: {
-        keyboardType: "email-address",
+        keyboardType: "default",
       },
     },
     lastname: {
-      label: "Apellidos",
+      label: "LastName",
       inputProps: {
         secureTextEntry: false,
       },
     },
     phone: {
-      label: "Numero de telefono",
+      label: "Phone Number",
       inputProps: {
         secureTextEntry: false,
       },
     },
     address: {
-      label: "Direccion",
+      label: "Address",
       inputProps: {
         secureTextEntry: false,
       },

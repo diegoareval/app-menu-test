@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { fields } from "../form/fields";
 import Form from "../form/Form";
 
@@ -7,7 +7,17 @@ export default function Page2() {
   return (
     <View>
       <Text>Page 2</Text>
-      <Form fields={fields} />
+      <View style={styles.container}>
+        <Form fields={fields} />
+      </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 10,
+  },
+});
