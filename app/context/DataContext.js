@@ -9,9 +9,14 @@ const DataContext = ({ children }) => {
     // generating the initial state related existing fields
   const fieldKeys = Object.keys(fields);
   const [data, setData] = useState(getInitialState(fieldKeys));
+  // clean data should work
+  const cleanData = () => {
+    setData(fieldKeys)
+  }
   const initialState = {
     data,
     setData,
+    cleanData
   };
 
   return (
